@@ -26,7 +26,7 @@ Now you can begin working on Lynk-Social.
 
 Lynk social is a twitter like social network. currently in the very early stages. The issue log will list whats needed to get this off the ground and hopefully soon make live for testing.
 
-[Find what needs workied on here](https://github.com/iiCe89/Lynk_Social/issues)
+[Find what needs to be worked on here](https://github.com/iiCe89/Lynk_Social/issues)
 
 #### Learning Laravel
 
