@@ -15,6 +15,20 @@
         </ul>
         @else
         <ul class="navbar-nav ml-auto">
+            <li>
+            <li class="nav-link">
+                <div class="dropdown">
+                    <button class="btn btn-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-bell mr-2"></i><span class="badge badge-pill badge-danger">9</span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Username followed you</a>
+                        <a class="dropdown-item" href="#">Username replied</a>
+                        <a class="dropdown-item" href="#">Username liked your post</a>
+                    </div>
+                </div>
+            </li>
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img src="{{\auth()->user()->avatar}}" class="img-fluid center-block rounded-circle" style="height:40px;width:40px;">
