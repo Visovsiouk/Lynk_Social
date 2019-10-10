@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center align-items-center">
         <div class="col-sm-12 card shadow-sm border-0 mt-5">
-            <div class="card-header text-center font-weight-bold" style="background-color:white;">Welcome back!</div>
+            <div class="card-header text-center font-weight-bold" style="background-color:white;">{{ Auth::user()->username }} profile</div>
             <div class="card-body">
                 <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data">
                     @csrf
@@ -29,7 +29,7 @@
                     <div class="col-sm-6 form-group float-right">
                         <label for="avatar">{{ __('Avatar') }}</label>
                         <input id="avatar" type="file" class="form-control @error('avatar') is-invalid @enderror" name="avatar">
-                        <small class="text-warning">If you would like your avatar not be change, leave blank.</small>
+                        <small class="text-danger">If you would like your avatar not be change, leave blank.</small>
                         @error('password')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -39,7 +39,7 @@
                     <div class="col-sm-6 form-group">
                         <label for="password">{{ __('Password') }}</label>
                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="current-password">
-                        <small class="text-warning">If you would like your password not be change, leave blank.</small>
+                        <small class="text-danger">If you would like your password not be change, leave blank.</small>
                         @error('password')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

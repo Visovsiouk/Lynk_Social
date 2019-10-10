@@ -15,10 +15,6 @@
         </ul>
         @else
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link mt-2 text-dark" href="{{route('profile')}}">hello {{ Auth::user()->username }}</a>
-
-            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img src="{{\auth()->user()->avatar}}" class="img-fluid center-block rounded-circle" style="height:40px;width:40px;">
