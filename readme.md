@@ -16,6 +16,7 @@ composer install
 * set up mysql DB and add db name/username/password in .env
 * run php artisan migrate
 * create new branch 'Feat-username'
+when updating main.scss you will need to run ``npm run dev`` for changes to take effect
 
 Now you can begin working on Lynk-Social.
 
