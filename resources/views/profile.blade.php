@@ -55,7 +55,7 @@
                         <div class="form-group">
                             <h6 class="font-weight-bold"><i class="fas fa-check-circle text-success"></i> Save changes</h6>
                             <p>Update all changes made to your profile</p>
-                            <a href={{route('profile.destroy')}} class="btn btn-block btn-success">Update</a>
+                            <button type="submit" class="btn btn-block btn-success">Update</button>
                         </div>
                     </div>
                 </div>
