@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 class HomeController extends Controller
 {
     /**
@@ -23,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('feed');
+        $posts = DB::table('posts')->orderBy('id','DESC')->paginate(10);
+        return view('feed')->with(['posts'=>$posts]);
     }
 }

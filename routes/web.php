@@ -15,7 +15,10 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 Route::get('/feed', 'HomeController@index')->name('feed');
-Route::get('/replies', 'CommentsController@index')->name('replies');
+
+
+Route::get('/replies/post/{post_id}', 'CommentsController@index')->name('replies')->middleware('auth');
+Route::post('/create', 'CommentsController@create')->name('comment')->middleware('auth');
 
 Route::group(['prefix' => 'profile', 'middleware' => ['auth','verified']], function(){
     Route::get('/', 'ProfileController@show')->name('profile');

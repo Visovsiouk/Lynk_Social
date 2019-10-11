@@ -1,4 +1,5 @@
 <!-- CARD FOR DISPLAYING POST -->
+@forelse($posts as $post)
 <div class="card mb-2 border-0">
     <div class="card-body">
         <div class="media align-items-center">
@@ -20,7 +21,7 @@
                         </div>
                     </div>
                 </div>
-                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum.</p>
+                <p>{{ $post->body }}</p>
                 <div class="row">
                     <div class="col-sm-6">
                         <small>Posted 4 days ago</small>
@@ -30,10 +31,10 @@
                             <i class="far fa-heart text-danger pr-2"></i><span class="badge badge-light pr-2">300</span>
                             <span class="sr-only">unread messages</span>
                         </button>
-                        <button type="button" class="btn btn-post btn-sm float-right mr-2">
+                        <a href="{{ route('replies',['post_id'=>$post->id]) }}" class="btn btn-post btn-sm float-right mr-2">
                             <i class="far fa-comment-alt pr-2"></i> <span class="badge badge-light">100</span>
                             <span class="sr-only">unread messages</span>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -41,3 +42,5 @@
     </div>
 </div>
 <!-- CARD FOR DISPLAYING DISPLAY -->
+@empty
+@endforelse
