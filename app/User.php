@@ -55,4 +55,9 @@ class User extends Authenticatable
             return $avatar->buildGravatarUrl();
         }
     }
+
+    public function getUserAvatarAttribute()
+    {
+        return  $this->getOriginal('avatar');
+    }
 }
