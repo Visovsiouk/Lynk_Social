@@ -55,7 +55,7 @@
                     </div>
                     <div class="form-group">
                         <div class="">
-                            <small><a href="{{ route('login') }}">already a member?</a></small>
+                            <small><a href="{{ route('login') }}">Already a member?</a></small>
                             <button type="submit" class="btn btn-home float-right">
                                 {{ __('Register') }}
                             </button>
