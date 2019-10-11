@@ -33,14 +33,18 @@ class ProfileController extends Controller
             'username' => $request->input('username'),
             'about' => $request->input('about')
         ];
+
         if($request->has('password')){
             $data['password'] = Hash::make($request->input('password'));
         }
+
         if($request->hasFile('avatar')){
             Storage::delete(str_replace('/storage/','',User::find(\auth()->id())->avatar));
             $data['avatar'] = $request->file('avatar')->store(date('Y').'/'.date('m').'/avatars');
         }
-        User::where('id', \auth()->id())->update($data);
+
+        User::where('id', auth()->id())->update($data);
+
         return redirect()->route('profile');
     }
 
@@ -51,7 +55,7 @@ class ProfileController extends Controller
      */
     public function destroy()
     {
-        User::destroy(\auth()->id());
+        User::destroy(auth()->id());
         return redirect()->route('index');
     }
 }
