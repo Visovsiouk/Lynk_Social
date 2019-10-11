@@ -12,7 +12,7 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 
 /**
- * This class managed the uploads of files
+ * This class manages the uploads of files
  *
  * Class ImageManager
  * @package App\Managers
