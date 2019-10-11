@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Managers\ImageManager;
 use Illuminate\Http\Request;
 use \App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Support\Facades\Hash;
@@ -23,10 +24,12 @@ class ProfileController extends Controller
     /**
      * Update the user profile.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param ProfileUpdateRequest $request
+     * @param ImageManager $imageManager
+     *
      * @return \Illuminate\Http\Response
      */
-    public function update(ProfileUpdateRequest $request)
+    public function update(ProfileUpdateRequest $request, ImageManager $imageManager)
     {
         $data = [
             'email' => $request->input('email'),
@@ -39,8 +42,8 @@ class ProfileController extends Controller
         }
 
         if($request->hasFile('avatar')){
-            Storage::delete(str_replace('/storage/','',User::find(\auth()->id())->avatar));
-            $data['avatar'] = $request->file('avatar')->store(date('Y').'/'.date('m').'/avatars');
+            $user = auth()->user();
+            $imageManager->uploadAvatar($request, $user);
         }
 
         User::where('id', auth()->id())->update($data);
