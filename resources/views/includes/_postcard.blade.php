@@ -2,7 +2,7 @@
 <div class="card mb-2 border-0">
     <div class="card-body">
         <div class="media align-items-center">
-            <img src="{{ Auth::user()->avatar }}" class="img-fluid center-block rounded-circle mr-2" style="height:90px;width:90px;">
+            <img src="{{\auth()->user()->avatar}}" class="img-fluid center-block rounded-circle mr-2" style="height:90px;width:90px;">
             <div class="media-body">
                 <div class="row">
                     <div class="col-sm-8">

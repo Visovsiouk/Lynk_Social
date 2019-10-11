@@ -37,9 +37,64 @@
             </div>
         </div>
         <div class="col-md-3">
+            @if (Auth::guest())
+            <div class="card border-0 shadow-sm mb-2">
+                <div class="card-body">
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
+                        <div class="form-group">
+                            <label for="password">{{ __('E-Mail Address') }}</label>
+                            <div class="">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">{{ __('Password') }}</label>
+                            <div class="">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-home btn-block">
+                                {{ __('Login') }}
+                            </button>
+
+                            <a class="btn btn-link mt-3 btn-sm" href="/register">
+                                Not yet registered?
+                            </a>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+            @endif
             <div class="card border-0 shadow-sm">
                 <div class="card-body">
-                    <h5 class="font-weight-bold">Whats happening</h5>
+                    <h5 class="font-weight-bold">#trending</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Cras justo odio
+                            <span class="badge badge-primary badge-pill">14</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Dapibus ac facilisis in
+                            <span class="badge badge-primary badge-pill">2</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Morbi leo risus
+                            <span class="badge badge-primary badge-pill">1</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
