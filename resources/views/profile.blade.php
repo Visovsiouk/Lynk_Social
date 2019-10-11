@@ -7,7 +7,7 @@
         <div class="row mt-5">
             <div class="col-md-6">
                 <div class="card shadow-sm border-0">
-                    <img src="/" class="rounded-circle mt-4 mx-auto" alt="..." style="height:100px;width:100px;">
+                    <img src="{{ auth()->user()->avatar }}" class="rounded-circle mt-4 mx-auto" alt="..." style="height:100px;width:100px;">
                     <div class="card-body">
                         <div class="form-group">
                             <label for="avatar">{{ __('Avatar') }}</label>
