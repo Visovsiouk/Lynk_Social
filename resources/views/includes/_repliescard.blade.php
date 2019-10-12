@@ -16,7 +16,7 @@
                             </button>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">Edit post</a>
-                                <a class="dropdown-item" href="#">Delete post</a>
+                                <a class="dropdown-item" href="{{ route('reply.destroy', ['id'=>$reply->id]) }}">Delete reply</a>
                             </div>
                         </div>
                     </div>

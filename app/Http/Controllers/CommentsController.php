@@ -50,4 +50,11 @@ class CommentsController extends Controller
 
         ]);
     }
+
+    public function destroy($id) {
+        //delete comment where id is $id
+        DB::table('comments')->where('id',$id)->delete();
+
+        return back();
+    }
 }
