@@ -12,7 +12,6 @@
 
 </div>
 <div class="container-fluid">
-    @if(auth()->check())
     <div class="row mt-3">
         <div class="col-md-3">
             <div class="card border-0 shadow-sm">
@@ -47,7 +46,6 @@
                 </div>
             </div>
         </div>
-        @endif
     </div>
 </div>
 @endsection
