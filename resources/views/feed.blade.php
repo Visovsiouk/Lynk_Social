@@ -12,12 +12,14 @@
 
 </div>
 <div class="container-fluid">
+    @if(auth()->check())
     <div class="row mt-3">
         <div class="col-md-3">
             <div class="card border-0 shadow-sm">
                 <div class="card-body"></div>
             </div>
         </div>
+
         <div class="col-md-6">
             <!-- COMMENT CARD FOR WRITING YOUR POST -->
             <div class="card border-0 mb-3">
@@ -31,11 +33,13 @@
             <!-- COMMENT CARD FOR WRITING YOUR POST -->
             <div class="card border-0">
                 <div class="card-body">
-                    @include("includes/_postcard")
+
+                      @include("includes/_postcard")
                     <hr>
                 </div>
             </div>
         </div>
+
         <div class="col-md-3">
             <div class="card border-0 shadow-sm">
                 <div class="card-body">
@@ -43,6 +47,7 @@
                 </div>
             </div>
         </div>
+        @endif
     </div>
 </div>
 @endsection
