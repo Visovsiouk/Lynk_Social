@@ -2,11 +2,11 @@
 <div class="card mb-2 border-0">
     <div class="card-body">
         <div class="media align-items-center">
-            <img src="{{\auth()->user()->avatar}}" class="img-fluid center-block rounded-circle mr-2" style="height:90px;width:90px;">
+            <img src="{{ $post->author->avatar}}" class="img-fluid center-block rounded-circle mr-2" style="height:90px;width:90px;">
             <div class="media-body">
                 <div class="row">
                     <div class="col-sm-8">
-                        <h6 class="mt-0 text-primary font-weight-bold mt-2">{{ Auth::user()->username }}</h6>
+                        <h6 class="mt-0 text-primary font-weight-bold mt-2">{{ $post->author->username }}</h6>
                     </div>
                     <div class="col-sm-4">
                         <div class="btn-group float-right mb-1">
@@ -20,10 +20,10 @@
                         </div>
                     </div>
                 </div>
-                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum.</p>
+                <p>{{ $post->body }}</p>
                 <div class="row">
                     <div class="col-sm-6">
-                        <small>Posted 4 days ago</small>
+                        <small>{{ $post->created_at->diffForHumans() }}</small>
                     </div>
                     <div class="col-sm-6">
                         <button type="button" class="btn btn-post btn-sm float-right" data-toggle="modal" data-target="#flag">

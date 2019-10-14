@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,16 +14,25 @@ class HomeController extends Controller
      */
      public function __construct()
     {
-         $this->middleware('auth');
+         $this->middleware('auth')->except('homePage');
+    }
+
+    public function homePage()
+    {
+        return view('index');
     }
 
     /**
-     * Show the application dashboard.
+     * List posts on feed page
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
     {
-        return view('feed');
+        $posts = Post::with('author')
+            ->latest()
+            ->get();
+
+        return view('feed')->with('posts', $posts);
     }
 }
