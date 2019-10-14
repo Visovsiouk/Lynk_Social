@@ -17,22 +17,33 @@
 
         <div class="col-md-6">
             <!-- COMMENT CARD FOR WRITING YOUR POST -->
-            <div class="card border-0 mb-3">
-                <div class="card-body">
-                    <div class="form-group">
-                        <textarea class="form-control comment-post" id="exampleFormControlTextarea1" rows="2" placeholder="Once upon a time.."></textarea>
-                        <div class="row">
-                            <div class="col-sm-6 pt-3">
-                                <i class="far fa-smile mr-2"></i>
-                                <i class="far fa-images"></i>
-                            </div>
-                            <div class="col-sm-6">
-                                <input class="btn btn-home btn-sm float-right mt-2" type="submit" value="Post">
+            <form action="{{ route('posts.store') }}" method="post">
+                {{ csrf_field() }}
+                <div class="card border-0 mb-3">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <textarea
+                                name="body"
+                                class="form-control comment-post"
+                                id="exampleFormControlTextarea1"
+                                rows="2"
+                                placeholder="Once upon a time..">
+                            </textarea>
+                            <div class="row">
+                                <div class="col-sm-6 pt-3">
+                                    <i class="far fa-smile mr-2"></i>
+                                    <i class="far fa-images"></i>
+                                </div>
+                                <input type="hidden" name="author_id" value="{{ auth()->user()->id }}">
+                                <div class="col-sm-6">
+                                    <button class="btn btn-home btn-sm float-right mt-2" type="submit">Post</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
+
             <!-- COMMENT CARD FOR WRITING YOUR POST -->
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item mr-2">
@@ -45,23 +56,29 @@
                     <a class="btn btn-light btn-sm" id="pills-popular-tab" data-toggle="pill" href="#pills-popular" role="tab" aria-controls="pills-contact" aria-selected="false"><i class="fas fa-fire text-warning"></i> Popular</a>
                 </li>
             </ul>
-            <div class="card border-0">
-                <div class="card-body">
-                    <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-feed" role="tabpanel" aria-labelledby="pills-feed-tab">
-                            @include("includes/_postcard")
-                        </div>
-                        <div class="tab-pane fade" id="pills-trending" role="tabpanel" aria-labelledby="pills-trending-tab">
-                            Trending posts
-                        </div>
-                        <div class="tab-pane fade" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
-                            Popular
+
+
+                    <div class="card border-0">
+                        <div class="card-body">
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-feed" role="tabpanel" aria-labelledby="pills-feed-tab">
+                                    @if($posts)
+                                        @foreach($posts as $post)
+                                            @include("includes/_postcard")
+                                        @endforeach
+                                    @endif
+                                </div>
+                                <div class="tab-pane fade" id="pills-trending" role="tabpanel" aria-labelledby="pills-trending-tab">
+                                    Trending posts
+                                </div>
+                                <div class="tab-pane fade" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
+                                    Popular
+                                </div>
+                            </div>
+
+                            <hr>
                         </div>
                     </div>
-
-                    <hr>
-                </div>
-            </div>
         </div>
 
         <div class="col-md-3">
