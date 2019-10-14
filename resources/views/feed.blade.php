@@ -18,6 +18,7 @@
                 <div class="card-body"></div>
             </div>
         </div>
+
         <div class="col-md-6">
             <!-- COMMENT CARD FOR WRITING YOUR POST -->
             <div class="card border-0 mb-3">
@@ -61,10 +62,12 @@
                             Popular
                         </div>
                     </div>
+
                     <hr>
                 </div>
             </div>
         </div>
+
         <div class="col-md-3">
             @if (Auth::guest())
             <div class="card border-0 shadow-sm mb-2">
