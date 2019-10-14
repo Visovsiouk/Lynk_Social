@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+Route::get('/', 'HomeController@homePage')->name('home');
 Route::get('/feed', 'HomeController@index')->name('feed');
 
 
@@ -31,6 +29,11 @@ Route::group(['prefix' => 'profile', 'middleware' => ['auth','verified']], funct
     Route::get('/', 'ProfileController@show')->name('profile');
     Route::post('/update', 'ProfileController@update')->name('profile.update');
     Route::get('/destroy', 'ProfileController@destroy')->name('profile.destroy');
+});
+
+Route::group(['prefix' => 'posts', 'middleware' => ['auth','verified']], function(){
+    Route::get('/', 'PostsController@index')->name('posts.index');
+    Route::post('/store', 'PostsController@store')->name('posts.store');
 });
 
 Auth::routes();

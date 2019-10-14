@@ -15,7 +15,9 @@ let mix = require('laravel-mix');
 // Compile our Javascript files.
 mix.scripts([
     'public/js/bootstrap.min.js',
-], 'public/js/app.js');
+], 'public/js/vendor.js');
+
+mix.js('resources/js/app.js', 'public/js');
 
 mix.sass("public/css/main.scss", "public/css").styles(
     [

@@ -3,8 +3,8 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    @if (Auth::guest())
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    @if (Auth::guest())
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link" href="/register">Join free</a>
@@ -15,7 +15,6 @@
         </ul>
         @else
         <ul class="navbar-nav ml-auto">
-            <li>
             <li class="nav-link">
                 <div class="dropdown">
                     <button class="btn btn-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -27,7 +26,6 @@
                         <a class="dropdown-item" href="#">Username liked your post</a>
                     </div>
                 </div>
-            </li>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,6 +39,6 @@
                 </div>
             </li>
         </ul>
-    </div>
     @endif
+    </div>
 </nav>
