@@ -53,7 +53,7 @@
                                         <span class="sr-only">unread messages</span>
                                     </button>
                                     <button type="button" class="btn btn-post btn-sm float-right mr-2">
-                                        <i class="far fa-comment-alt pr-2"></i> <span class="badge badge-light">100</span>
+                                        <i class="far fa-comment-alt pr-2"></i> <span class="badge badge-light">{{ \App\Comment::where(['post_id' => $post->id])->count() }}</span>
                                         <span class="sr-only">unread messages</span>
                                     </button>
                                 </div>

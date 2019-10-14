@@ -29,15 +29,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
-        $posts = DB::table('posts')->orderBy('id','DESC')->paginate(10);
-        return view('feed')->with(['posts'=>$posts]);
-=======
         $posts = Post::with('author')
             ->latest()
             ->get();
 
         return view('feed')->with('posts', $posts);
->>>>>>> 3bf5725f65a683036d87d2f92d7da5f9916debd4
     }
 }
