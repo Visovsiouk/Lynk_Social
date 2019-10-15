@@ -1,4 +1,5 @@
 <!-- CARD FOR DISPLAYING POST -->
+@forelse($posts as $post)
 <div class="card mb-2 border-0">
     <div class="card-body">
         <div class="media align-items-center">
@@ -34,10 +35,10 @@
                             <i class="far fa-heart text-danger pr-2"></i><span class="badge badge-light pr-2">300</span>
                             <span class="sr-only">unread messages</span>
                         </button>
-                        <button type="button" class="btn btn-post btn-sm float-right mr-2">
-                            <i class="far fa-comment-alt pr-2"></i> <span class="badge badge-light">100</span>
+                        <a href="{{ route('replies',['post_id'=>$post->id]) }}" class="btn btn-post btn-sm float-right mr-2">
+                            <i class="far fa-comment-alt pr-2"></i> <span class="badge badge-light">{{ \App\Comment::where(['post_id' => $post->id])->count() }}</span>
                             <span class="sr-only">unread messages</span>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -45,7 +46,9 @@
     </div>
 </div>
 <!-- CARD FOR DISPLAYING DISPLAY -->
-
+@empty
+<p>No Posts Yet</p>
+@endforelse
 
 <div class="modal fade" id="flag" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

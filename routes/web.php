@@ -14,6 +14,17 @@
 Route::get('/', 'HomeController@homePage')->name('home');
 Route::get('/feed', 'HomeController@index')->name('feed');
 
+
+
+
+Route::group(['middleware'=>['auth']], function(){
+
+    Route::get('/replies/post/{post_id}', 'CommentsController@index')->name('replies');
+    Route::post('/create', 'CommentsController@create')->name('comment');
+    Route::get('/delete/{id}',  'CommentsController@destroy')->name('reply.destroy');
+
+});
+
 Route::group(['prefix' => 'profile', 'middleware' => ['auth','verified']], function(){
     Route::get('/', 'ProfileController@show')->name('profile');
     Route::post('/update', 'ProfileController@update')->name('profile.update');
