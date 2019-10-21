@@ -26,3 +26,11 @@ Auth::routes();
 Auth::routes(['verify' => true]);
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
+// User notifications routes
+Route::get('notifications', ['as' => 'notifications', 'uses' => 'NotificationsController@index']);
+
+Route::prefix('/notifications-menu')->group(function () {
+    Route::post('index', ['as' => 'notifications.index', 'uses' => 'NotificationsController@unread']);
+    Route::post('read-all', ['as' => 'notifications.readAll', 'uses' => 'NotificationsController@readAll']);
+    Route::post('read', ['as' => 'notifications.markRead', 'uses' => 'NotificationsController@markRead']);
+});

@@ -17,14 +17,19 @@
         <ul class="navbar-nav ml-auto">
             <li>
             <li class="nav-link">
-                <div class="dropdown">
+                <div id="notifications" class="dropdown">
                     <button class="btn btn-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-bell mr-2"></i><span class="badge badge-pill badge-danger">9</span>
+                        <i class="fas fa-bell mr-2"></i><span class="badge badge-pill badge-danger notification-counter">{{ $user->unreadNotifications->count() }}</span>
                     </button>
+                    
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Username followed you</a>
-                        <a class="dropdown-item" href="#">Username replied</a>
-                        <a class="dropdown-item" href="#">Username liked your post</a>
+                        <div class="dropdown-toolbar">
+                            <p class="dropdown-toolbar-title">Unread notifications ({{$user->unreadNotifications->count()}})</p>
+                            <div>
+                                <a href="#" id="read-notifications" onclick="markAllNotificationsAsRead(); return false;">Mark all as read</a>
+                            </div>
+                        </div>
+                        <div class="notifications-list"></div>
                     </div>
                 </div>
             </li>
