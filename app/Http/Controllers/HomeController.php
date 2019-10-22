@@ -23,6 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('feed');
+        $user = Auth::user();
+
+        return view('feed')->with([
+            'user' => $user
+        ]);
     }
 }

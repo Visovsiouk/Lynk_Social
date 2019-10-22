@@ -28,12 +28,14 @@
 		window.pusher_key = '{{ config("broadcasting.connections.pusher.key") }}';
 	</script>
 
-    <script>
-		Echo.private('App.User.{{$user->id}}')
-			.notification((notification) => {
-				updateNotificatonsCountTick(+1);
-		    });
-	</script>
+    @if (Auth::check())
+        <script>
+            Echo.private('App.User.{{$user->id}}')
+                .notification((notification) => {
+                    updateNotificatonsCountTick(+1);
+                });
+        </script>
+    @endif
 
     @yield('js')
     <script>
